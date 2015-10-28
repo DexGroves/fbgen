@@ -16,14 +16,14 @@ cg = ConversationGenerator(conv_data)
 cg.generate_conversation(10)
 ```
 ```
-Abbott     Because 
-Costello   Funny names? 
-Abbott     Yes 
-Costello   I throw the ball me being a good outfield? 
-Abbott     Yes 
-Costello   When you pay off the first baseman every month, who gets the money? 
-Abbott     I'm telling you. Who's on first, What's on second, I Don't Know is on first 
-Costello   So who gets it? 
-Abbott     Oh, that's our shortstop! 
-Costello   I'm not asking you who's on second 
+Costello   The pitcher's name? 
+Abbott     Yes! 
+Costello   If I mentioned the third baseman's name, who did I say is playing third? 
+Abbott     What? 
+Costello   Who's wife? 
+Abbott     Who 
+Costello   I throw it to I Don't Know. I Don't Know. I Don't Know. I Don't Know throws it to who? 
+Abbott     Naturally 
+Costello   I'm only asking you, who's the guy runs to second. Who picks up the first baseman, how does he sign his name?
+Abbott & Costello Together   Third base! 
 ```
