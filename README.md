@@ -1,7 +1,7 @@
 # fbgen
 Markov-generated Facebook chat.
 
-Tools for processing the heap of HTML Facebook's request data feature provides to JSON, and subsequently into Markov-generated madness flavoured to your favourite friends. Interface coming soon™.
+Tools for processing the heap of HTML Facebook's request data feature provides to JSON, and subsequently into Markov-generated madness flavoured to your favourite friends.
 
 [How to get messages.htm from Facebook](https://www.facebook.com/help/131112897028467/)
 
