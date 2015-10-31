@@ -1,11 +1,22 @@
 # fbgen
-Markov-generated Facebook chat
+Markov-generated Facebook chat.
 
 Tools for processing the heap of HTML Facebook's request data feature provides to JSON, and subsequently into Markov-generated madness flavoured to your favourite friends. Interface coming soon™.
 
-Thanks to agiliq for boosting me with this gist: https://gist.github.com/agiliq/131679#file-gistfile1-py
+[How to get messages.htm from Facebook](https://www.facebook.com/help/131112897028467/)
 
-## Example
+Thanks to agiliq for boosting me with [this gist](https://gist.github.com/agiliq/131679#file-gistfile1-py).
+
+## Parsing messages.htm to JSON
+```bash
+./parse_messages.py messages.htm my_output_dir
+```
+
+## Generating nonsense
+```bash
+./generate_conversation.py example/whos_on_first.json 10
+```
+or:
 ```python
 from code.conversation_reader import ConversationReader
 from code.conversation_generator import ConversationGenerator
@@ -15,6 +26,7 @@ cg = ConversationGenerator(conv_data)
 
 cg.generate_conversation(10)
 ```
+gets something like:
 ```
 Costello   The pitcher's name? 
 Abbott     Yes! 
