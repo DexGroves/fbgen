@@ -6,15 +6,16 @@ from lxml import html
 class FacebookParser(object):
     """
     Parse the horrible Facebook data messages.htm into something more useful.
-    Produces tab-delimited conversation logs in parsed_convos.
+    Produces tab-delimited conversation logs in outpath.
     """
 
-    def __init__(self, path, lower_size_limit=500):
+    def __init__(self, path, outpath='parsed_convos', lower_size_limit=500):
         self.lower_size_limit = lower_size_limit
         self.max_filename_len = 80
+        self.outpath = outpath + '/'
         self.xmlp = XmlParser()
 
-        self.create_output_dir_if_necessary("parsed_convos")
+        self.create_output_dir_if_necessary(self.outpath)
 
         html_string = self.xmlp.get_html_string(path)
         tree = self.xmlp.get_xpath_tree(html_string)
@@ -46,7 +47,7 @@ class FacebookParser(object):
         for filename, convo in conv_dict.iteritems():
             if len(convo) > self.lower_size_limit:
                 filename = self.reduce_filename_to_initials(filename)
-                filepath = 'parsed_convos/' + filename + '.json'
+                filepath = self.outpath + filename + '.json'
                 filepath = self.increment_filename_if_exists(filepath)
                 self.save_convo_to_file(convo, filepath)
 
