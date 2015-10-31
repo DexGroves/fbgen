@@ -14,6 +14,8 @@ class FacebookParser(object):
         self.max_filename_len = 80
         self.xmlp = XmlParser()
 
+        self.create_output_dir_if_necessary("parsed_convos")
+
         html_string = self.xmlp.get_html_string(path)
         tree = self.xmlp.get_xpath_tree(html_string)
         convos = self.xmlp.get_conversations(tree)
@@ -80,6 +82,11 @@ class FacebookParser(object):
         authors = [author for (author, msg) in convo if "@" not in author]
         authors = set(authors)
         return '-'.join(sorted(authors))
+
+    @staticmethod
+    def create_output_dir_if_necessary(output_dir):
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
 
 
 class XmlParser(object):
