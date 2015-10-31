@@ -7,8 +7,9 @@ class FacebookParser(object):
     Parse the horrible Facebook data messages.htm into something more useful.
     Produces tab-delimited conversation logs in parsed_convos.
     """
-    def __init__(self, path):
-        self.lower_size_limit = 500
+
+    def __init__(self, path, lower_size_limit=500):
+        self.lower_size_limit = lower_size_limit
 
         with open(path) as fb_html:
             html_string = fb_html.read()

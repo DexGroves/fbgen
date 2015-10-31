@@ -3,11 +3,12 @@ import random
 
 class MarkovGenerator(object):
     """Vanilla Markov generator."""
+
     def __init__(self):
         pass
 
     def _generate_database(self):
-        """Generate the database of authors keyed by prior authors."""
+        """Generate the database of words keyed by prior words."""
         cache = {}
         for w1, w2, w3 in self._triples(self.words):
             key = (w1, w2)
@@ -34,7 +35,7 @@ class AuthorGenerator(MarkovGenerator):
     """Generate a sequence of authors."""
 
     def __init__(self, msg_sequence):
-        self.words = [author for author, msg in msg_sequence]
+        self.words = [author for (author, msg) in msg_sequence]
         self.cache = self._generate_database()
         self.author_set = set(self.words)
 
@@ -87,9 +88,11 @@ class MessageGenerator(MarkovGenerator):
 
     @staticmethod
     def _add_padding(msg):
+        """Track the start and end of messages."""
         return '\000msgstart ' + msg + ' \000msgend'
 
     @staticmethod
     def _remove_padding(mkstring):
+        """Untrack the start and end of messages."""
         mkstring = mkstring.replace("\000msgstart", "")
         return mkstring.replace("\000msgend", "")
